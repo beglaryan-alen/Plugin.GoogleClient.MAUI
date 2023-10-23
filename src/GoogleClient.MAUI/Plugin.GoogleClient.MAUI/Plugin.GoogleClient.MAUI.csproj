@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
+
+	  <UseMaui>true</UseMaui>
+	  <UseMauiEssentials>true</UseMauiEssentials>
+	  <PackageId>Plugin.GoogleClient.MAUI</PackageId>
+	  <Description>Plugin.GoogleClient for MAUI</Description>
+	  
+	  <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+	  <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
+    <PackageReference Include="Microsoft.Maui.Dependencies" Version="6.0.553" />
+    <PackageReference Include="Microsoft.Maui.Extensions" Version="6.0.553" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="8.10.0.3" />
+    <PackageReference Include="Xamarin.Google.iOS.SignIn" Version="5.0.2.4" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
+	  		<PackageReference Include="Xamarin.AndroidX.Activity" Version="1.7.2" />
+		<PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.7.2" />
+	  <PackageReference Include="Xamarin.GooglePlayServices.Basement">
+		  <Version>118.2.0.2</Version>
+	  </PackageReference>
+	  <PackageReference Include="Xamarin.GooglePlayServices.Tasks">
+		  <Version>118.0.2.3</Version>
+	  </PackageReference>
+    <PackageReference Include="Xamarin.GooglePlayServices.Auth">
+      <Version>120.6.0.1</Version>
+	</PackageReference>
+
+  </ItemGroup>
+
+</Project>
