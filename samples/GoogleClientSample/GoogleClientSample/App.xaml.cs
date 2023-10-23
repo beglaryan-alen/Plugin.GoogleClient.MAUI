@@ -1,4 +1,6 @@
-﻿namespace GoogleClientSample;
+﻿using GoogleClientSample.Views;
+
+namespace GoogleClientSample;
 
 public partial class App : Application
 {

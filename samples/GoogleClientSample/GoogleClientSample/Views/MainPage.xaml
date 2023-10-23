@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GoogleClientSample.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:GoogleClientSample.Views">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InvertBooleanConverter x:Key="InvertBooleanConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <Label
+                Margin="0,32,0,0"
+                FontSize="20"
+                HorizontalOptions="CenterAndExpand"
+                Text="Welcome to Google Client App!"
+                TextColor="#212121"
+                VerticalOptions="Start" />
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                <Image
+                    Margin="24"
+                    HeightRequest="120"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsLoggedIn, Converter={StaticResource InvertBooleanConverter}}"
+                    Source="googlelogo.png"
+                    VerticalOptions="Center"
+                    WidthRequest="120" />
+
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="{Binding IsLoggedIn}"
+                    Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand">
+                    <Image
+                        HeightRequest="120"
+                        IsVisible="{Binding IsLoggedIn}"
+                        Source="{Binding User.Picture}"
+                        VerticalOptions="StartAndExpand"
+                        WidthRequest="120" />
+                    <StackLayout
+                        Margin="16,0,0,0"
+                        IsVisible="{Binding IsLoggedIn}"
+                        Orientation="Vertical"
+                        Spacing="8">
+                        <Label
+                            FontSize="16"
+                            Text="Name:"
+                            TextColor="#212121" />
+                        <Label Margin="16,0,0,0" Text="{Binding User.Name}" />
+                        <Label
+                            FontSize="16"
+                            Text="Email:"
+                            TextColor="#212121" />
+                        <Label Margin="16,0,0,0" Text="{Binding User.Email}" />
+                        <Label
+                            FontSize="16"
+                            Text="Token:"
+                            TextColor="#212121" />
+                        <Label Margin="16,0,0,0" Text="{Binding Token}" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <Button
+                BackgroundColor="DarkOrange"
+                Command="{Binding LoginCommand}"
+                IsVisible="{Binding IsLoggedIn, Converter={StaticResource InvertBooleanConverter}}"
+                Text="Login"
+                VerticalOptions="EndAndExpand" />
+
+            <Button
+                BackgroundColor="DarkOrange"
+                Command="{Binding LogoutCommand}"
+                IsVisible="{Binding IsLoggedIn}"
+                Text="Logout"
+                VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,4 +1,6 @@
-﻿namespace GoogleClientSample;
+﻿using Plugin.GoogleClient.MAUI;
+
+namespace GoogleClientSample;
 
 public static class MauiProgram
 {
@@ -7,7 +9,8 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
+            .UseGoogleLogin()
+            .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");

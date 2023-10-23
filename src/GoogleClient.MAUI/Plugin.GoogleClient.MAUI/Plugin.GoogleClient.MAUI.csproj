@@ -1,13 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
+	<PropertyGroup>
+		<PackageId>GoogleClientPlugin.MAUI</PackageId>
+		<Description>CrossGeeks PluginGoogleClient for MAUI</Description>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>GoogleClient for MAUI</Title>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/beglaryan-alen/Plugin.GoogleClient.MAUI</PackageProjectUrl>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<Authors>Alen Beglaryan</Authors>
+		<PackageTags>Maui;googlelogin;Maui.googlelogin;GoogleClientPlugin</PackageTags>
+		<Version>1.0.0</Version>
+		<IncludeSymbols>True</IncludeSymbols>
+	</PropertyGroup>
   <PropertyGroup>
 	  <TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
-
 	  <UseMaui>true</UseMaui>
 	  <UseMauiEssentials>true</UseMauiEssentials>
-	  <PackageId>Plugin.GoogleClient.MAUI</PackageId>
-	  <Description>Plugin.GoogleClient for MAUI</Description>
-	  
 	  <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 	  <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
   </PropertyGroup>
