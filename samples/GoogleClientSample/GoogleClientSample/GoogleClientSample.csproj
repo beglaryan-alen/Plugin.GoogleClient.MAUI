@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
+		<TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
@@ -26,29 +26,36 @@
 		<AndroidSigningKeyStore>googleclientmaui.keystore</AndroidSigningKeyStore>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
 	  <AndroidKeyStore>True</AndroidKeyStore>
 	  <AndroidSigningStorePass>123456</AndroidSigningStorePass>
 	  <AndroidSigningKeyAlias>googleclientmaui</AndroidSigningKeyAlias>
 	  <AndroidSigningKeyPass>123456</AndroidSigningKeyPass>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
 	  <AndroidKeyStore>True</AndroidKeyStore>
 	  <AndroidSigningStorePass>123456</AndroidSigningStorePass>
 	  <AndroidSigningKeyAlias>googleclientmaui</AndroidSigningKeyAlias>
 	  <AndroidSigningKeyPass>123456</AndroidSigningKeyPass>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
 	  <MtouchLink>SdkOnly</MtouchLink>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
+	<PropertyGroup Condition="'$(TargetFramework)'=='net8.0-ios'">
 	  <ProvisioningType>manual</ProvisioningType>
 	  <CodesignKey>Apple Development: Created via API (488C23T39G)</CodesignKey>
 	  <CodesignProvision>Development</CodesignProvision>
+		<NoBindingEmbedding>false</NoBindingEmbedding>
+		<CompressBindingResourcePackage>true</CompressBindingResourcePackage>
 	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
@@ -68,16 +75,16 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
 		<BundleResource Include="Platforms\iOS\GoogleService-Info.plist" Link="GoogleService-Info.plist" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
 		<GoogleServicesJson Include="Platforms\Android\google-services.json" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="GoogleClientPlugin.MAUI" Version="1.0.0" />
+	  <ProjectReference Include="..\..\..\src\GoogleClient.MAUI\Plugin.GoogleClient.MAUI\Plugin.GoogleClient.MAUI.csproj" />
 	</ItemGroup>
 
 </Project>

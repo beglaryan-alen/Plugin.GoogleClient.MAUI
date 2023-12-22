@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.GoogleClient.MAUI", "Plugin.GoogleClient.MAUI\Plugin.GoogleClient.MAUI.csproj", "{865E74B3-7DCD-4295-AB15-9582300B73B8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoogleClientSample", "..\..\samples\GoogleClientSample\GoogleClientSample\GoogleClientSample.csproj", "{5911B9CA-7B46-46D3-8048-BA9FC08414F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{865E74B3-7DCD-4295-AB15-9582300B73B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{865E74B3-7DCD-4295-AB15-9582300B73B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{865E74B3-7DCD-4295-AB15-9582300B73B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5911B9CA-7B46-46D3-8048-BA9FC08414F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5911B9CA-7B46-46D3-8048-BA9FC08414F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5911B9CA-7B46-46D3-8048-BA9FC08414F3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5911B9CA-7B46-46D3-8048-BA9FC08414F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5911B9CA-7B46-46D3-8048-BA9FC08414F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5911B9CA-7B46-46D3-8048-BA9FC08414F3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
